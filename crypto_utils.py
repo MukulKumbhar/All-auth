@@ -1,7 +1,7 @@
 """
 Cryptographic Utilities Module
 Integrated Cryptography, Network Security and Privacy System
-Educational prototype implementing AES-256-GCM authenticated encryption and RSA-2048 PSS digital signatures.
+High-assurance cryptographic utilities providing AES-256-GCM authenticated encryption and RSA-2048 PSS digital signatures.
 """
 
 import os

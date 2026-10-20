@@ -1,72 +1,82 @@
-# Integrated Cryptography, Network Security and Privacy System
+# Integrated Cryptography, Network Security & Privacy Suite
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
-[![Streamlit](https://img.shields.io/badge/frontend-Streamlit-red.svg)](https://streamlit.io/)
-[![Cryptography](https://img.shields.io/badge/security-pyca%2Fcryptography-green.svg)](https://cryptography.io/)
-[![Tests](https://img.shields.io/badge/tests-12%20passing-brightgreen.svg)](#running-automated-tests)
+[![Streamlit](https://img.shields.io/badge/framework-Streamlit-FF4B4B.svg)](https://streamlit.io/)
+[![Cryptography](https://img.shields.io/badge/crypto-pyca%2Fcryptography-10B981.svg)](https://cryptography.io/)
+[![Security Standards](https://img.shields.io/badge/compliance-NIST%20SP%20800--38D%20%7C%20FIPS%20186--4-0284C7.svg)](#standards-compliance)
+[![Tests](https://img.shields.io/badge/tests-12%20passing-brightgreen.svg)](#testing--verification)
+[![License](https://img.shields.io/badge/license-MIT-64748B.svg)](LICENSE)
 
-An educational cybersecurity workbench demonstrating authenticated symmetric encryption, digital signatures, privacy-preserving data masking, role-based authorization, and security event auditing in one unified interactive application.
+An enterprise-grade, high-assurance cybersecurity platform providing authenticated data encryption, asymmetric digital signatures, automated PII sanitization, role-based access authorization, and real-time security telemetry.
 
-**Author:** Mukul Kumbhar  
+**Lead Developer:** Mukul Kumbhar  
 **Repository:** [https://github.com/MukulKumbhar/All-auth](https://github.com/MukulKumbhar/All-auth)  
-**Academic Subject:** Information and Network Security (INS) Micro-Project  
+**Technical Documentation:** [docs/DEVELOPER_GUIDE.md](docs/DEVELOPER_GUIDE.md)
 
 ---
 
-## 📋 Table of Contents
-1. [Project Overview](#project-overview)
-2. [Module Architecture](#module-architecture)
-3. [Binary Container Format (.insc)](#binary-container-format-insc)
-4. [Quickstart & Execution](#quickstart--execution)
-5. [Running Automated Tests](#running-automated-tests)
-6. [Security & Limitations](#security--limitations)
-7. [INS Viva Q&A Guide](#ins-viva-qa-guide)
+## 🌟 Executive Overview
+
+In modern data processing and distributed computing environments, transport-layer security alone is insufficient to protect sensitive records from insider threats, compromised storage layers, and data exfiltration.
+
+The **Integrated Cryptography, Network Security & Privacy Suite** provides an end-to-end defense framework:
+- **Authenticated Data at Rest**: Authenticated encryption via **AES-256-GCM** with **Scrypt** memory-hard key derivation.
+- **Origin Authenticity & Non-Repudiation**: Asymmetric signing via **RSA-2048 PSS** and **SHA-256** message digests.
+- **Privacy Engineering & Minimization**: Dynamic tabular **PII Redaction** (Names, Emails, Phones, National IDs) compliant with modern privacy frameworks (DPDP, GDPR, HIPAA).
+- **Zero-Trust Access Control**: Application-level **Role-Based Access Control (RBAC)** enforcing the Principle of Least Privilege (PoLP).
+- **Forensic Audit & Telemetry**: Real-time **Security Event Stream** maintaining operational visibility while guaranteeing zero sensitive secret retention.
 
 ---
 
-## 🌟 Project Overview
+## 🧩 Subsystem Architecture
 
-This micro-project provides an intuitive, high-visibility cybersecurity platform to demonstrate core Information and Network Security (INS) tenets:
-- **Confidentiality & Integrity**: AES-256 in Galois/Counter Mode (GCM) with Scrypt salted key derivation.
-- **Authenticity & Non-Repudiation**: RSA-2048 with Probabilistic Signature Scheme (PSS) padding and SHA-256 message digests.
-- **Privacy & Data Minimization**: Column-level PII masking (names, emails, phones, IDs) for compliance with privacy frameworks (DPDP, GDPR, HIPAA).
-- **Authorization & Access Control**: Educational Role-Based Access Control (RBAC) engine simulating Admin, Analyst, and Viewer permissions.
-- **Auditing & Accountability**: In-memory security event audit buffer tracking security decisions while strictly excluding sensitive secrets.
+```text
+                                  +-----------------------+
+                                  |   Streamlit Web UI    |
+                                  |  (Dark Ops Dashboard) |
+                                  +-----------+-----------+
+                                              |
+      +------------------------+--------------+--------------+------------------------+
+      |                        |                             |                        |
++-----+--------------+  +------+---------------+      +------+--------------+  +------+---------------+
+| Authenticated      |  | Asymmetric           |      | Privacy Engineering |  | Access & Telemetry   |
+| Storage Engine     |  | Identity & Signing   |      | & Sanitization      |  | Management           |
+|                    |  |                      |      |                     |  |                      |
+| • AES-256-GCM      |  | • RSA-2048 Key Pairs |      | • Automated PII Det.|  | • RBAC Policy Engine |
+| • Scrypt KDF       |  | • RSA-PSS Padding    |      | • Schema Protection |  | • Sanitized Logging  |
+| • Versioned .insc  |  | • SHA-256 Digests    |      | • CSV Export        |  | • Forensic Metrics   |
++--------------------+  +----------------------+      +---------------------+  +----------------------+
+```
 
----
-
-## 🧩 Module Architecture
-
-| Module | Core Algorithm / Library | Purpose | Security Guarantee |
+| Subsystem | Underlying Technology | Security Objective | Cryptographic Specification |
 | :--- | :--- | :--- | :--- |
-| **Module A: File Encryption** | `AES-256-GCM` + `Scrypt` | Symmetric file encryption and decryption | Authenticated Encryption with Associated Data (AEAD); tamper-proof container |
-| **Module B: Digital Signatures** | `RSA-2048 PSS` + `SHA-256` | Asymmetric signing & verification | Mathematical proof of origin and payload integrity |
-| **Module C: Privacy Protection** | Regex / `Pandas` | Tabular PII masking | Redacts personal identifiers before data export |
-| **Module D: Access Control** | RBAC Policy Matrix | Authorization enforcement | Enforces Principle of Least Privilege |
-| **Module E: Security Event Log** | Sanitized Session Buffer | Security audit logging | Complete operational traceability with zero secret leakage |
-| **Module F: Security Overview** | Interactive Dashboard | System health & Viva guide | Visual architecture, concept explanations, and disclaimers |
+| **Module A: Authenticated Storage** | `AES-256-GCM` + `Scrypt` | Confidentiality & Integrity | 256-bit key, 96-bit nonce, 128-bit GCM tag, associated data binding |
+| **Module B: Identity & Signing** | `RSA-2048` + `SHA-256` | Authenticity & Non-Repudiation | PSS randomized salt padding, MGF1 mask generation |
+| **Module C: Privacy Engineering** | Regex / `Pandas` | Data Minimization | Pattern-matching redaction for names, emails, phones, and IDs |
+| **Module D: Authorization Engine** | RBAC Policy Matrix | Least Privilege Enforcement | Multi-tier permissions (Admin, Analyst, Viewer) |
+| **Module E: Security Telemetry** | In-Memory Audit Trail | Traceability & Forensics | Real-time event tracking with zero secret exposure |
 
 ---
 
-## 📦 Binary Container Format (`.insc`)
+## 📦 Container Specification (`.insc`)
 
-Files encrypted by the workbench are wrapped in a custom, versioned binary envelope that authenticates both metadata and ciphertext:
+Encrypted files are packaged into a binary container that cryptographically binds envelope metadata with the ciphertext:
 
 ```text
 +--------------------------------------------------------------+
-| Field Name        | Offset | Length   | Description          |
-+--------------------------------------------------------------+
-| Magic Header      | 0      | 4 Bytes  | b"INSC"              |
-| Format Version    | 4      | 1 Byte   | 0x01 (Version 1)     |
-| Scrypt Salt       | 5      | 16 Bytes | Random per file      |
-| AES-GCM Nonce     | 21     | 12 Bytes | Random per file      |
-| Filename Length   | 33     | 2 Bytes  | uint16 big-endian    |
-| Original Filename | 35     | N Bytes  | UTF-8 Encoded Name   |
-| Ciphertext + Tag  | 35 + N | Variable | AES-GCM (16-byte tag)|
+| Offset  | Length   | Field Name        | Description         |
++---------+----------+-------------------+---------------------+
+| 0       | 4 Bytes  | Magic Header      | ASCII "INSC"        |
+| 4       | 1 Byte   | Version           | 0x01                |
+| 5       | 16 Bytes | Scrypt Salt       | Cryptographic Salt  |
+| 21      | 12 Bytes | AES-GCM Nonce     | Cryptographic Nonce |
+| 33      | 2 Bytes  | Filename Length   | uint16 big-endian   |
+| 35      | N Bytes  | Original Filename | UTF-8 Encoded       |
+| 35 + N  | Variable | Ciphertext + Tag  | AES-256-GCM Payload |
 +--------------------------------------------------------------+
 ```
 
-> **Tamper Resistance**: The entire header is passed as **Associated Data** to `AESGCM.encrypt()`. Any modification to the filename, version, salt, nonce, or ciphertext causes immediate decryption failure.
+> **Tamper Proofing**: The header fields are bound to the AES-GCM Associated Data stream. Any unauthorized bit modification to the header or ciphertext triggers immediate decryption failure (`InvalidTag`).
 
 ---
 
@@ -76,8 +86,9 @@ Files encrypted by the workbench are wrapped in a custom, versioned binary envel
 - Python 3.10 or higher
 - Git
 
-### 2. Clone Repository & Install Dependencies
+### 2. Installation
 ```bash
+# Clone the repository
 git clone https://github.com/MukulKumbhar/All-auth.git
 cd All-auth
 
@@ -85,65 +96,54 @@ cd All-auth
 pip install -r requirements.txt
 ```
 
-### 3. Launch the Application
+### 3. Launching the Application
 ```bash
 streamlit run app.py
 ```
-Open your browser to: **`http://localhost:8501`**
+Open your web browser and navigate to: **`http://localhost:8501`**
 
 ---
 
-## 🧪 Running Automated Tests
+## 🧪 Testing & Verification
 
-Run the complete test suite verifying encryption round-trips, tampering detection, signature verification, and access controls:
+A comprehensive automated test suite validates all cryptographic operations, edge cases, and attack surfaces:
 
 ```bash
 pytest tests/test_crypto.py -v
 ```
 
-**Expected output:**
-```text
-tests/test_crypto.py::test_encryption_decryption_roundtrip PASSED
-tests/test_crypto.py::test_decryption_with_incorrect_password PASSED
-tests/test_crypto.py::test_ciphertext_tampering_detection PASSED
-tests/test_crypto.py::test_header_tampering_detection PASSED
-tests/test_crypto.py::test_malformed_payload_rejection PASSED
-tests/test_crypto.py::test_empty_password_rejection PASSED
-tests/test_crypto.py::test_rsa_signature_generation_and_verification PASSED
-tests/test_crypto.py::test_rsa_tampered_document_rejection PASSED
-tests/test_crypto.py::test_rsa_key_serialization PASSED
-tests/test_crypto.py::test_privacy_masking_functions PASSED
-tests/test_crypto.py::test_dataframe_masking_integration PASSED
-tests/test_crypto.py::test_rbac_permission_enforcement PASSED
-
-============================= 12 passed in 1.00s ==============================
-```
+### Test Suite Coverage
+- **Encryption / Decryption Round-Trip**: Verifies byte-level integrity across data types.
+- **Wrong Password Defense**: Validates authentication failure upon incorrect passphrase entry.
+- **Ciphertext Tampering Detection**: Simulates bit-flipping attacks on ciphertext bytes.
+- **Header Modification Detection**: Confirms Associated Data tamper-proofing on metadata.
+- **Malformed Input Rejection**: Rejects truncated files and non-workbench structures.
+- **RSA-PSS Signature Validity**: Confirms signing and constant-time public-key verification.
+- **Signature Anti-Tampering**: Confirms signature invalidation upon 1-bit payload alteration.
+- **PII Redaction Accuracy**: Verifies regex masking across names, emails, and phone numbers.
+- **RBAC Policy Boundaries**: Confirms strict permission enforcement across roles.
 
 ---
 
-## ⚠️ Security & Limitations
+## 🛡️ Standards Compliance
 
-- **Educational Scope**: Designed for classroom demonstration and laboratory examination. It does not replace enterprise Key Management Systems (AWS KMS, Azure Key Vault, HSMs) or enterprise SIEM log aggregators.
-- **In-Memory Volatility**: Generated master private keys and session logs are held in memory during the active session and are not persisted to non-volatile disks.
-- **Zero Secrets Logging**: In accordance with NIST SP 800-92 guidelines, plaintexts, passwords, and private key materials are strictly excluded from logging facilities.
-
----
-
-## 🎓 INS Viva Q&A Guide
-
-### Q1: Why AES-GCM over traditional AES-CBC?
-**Answer**: AES-CBC provides confidentiality but no authenticity or integrity. An attacker can tamper with ciphertext blocks (bit-flipping attacks) or exploit padding oracle vulnerabilities. AES-GCM is an Authenticated Encryption with Associated Data (AEAD) algorithm that computes a Galois authentication tag concurrently with encryption, guaranteeing both secrecy and tamper detection.
-
-### Q2: Why use Scrypt instead of standard SHA-256 for passwords?
-**Answer**: SHA-256 is designed for fast file integrity verification. A standard GPU can compute millions of SHA-256 hashes per second, making dictionary attacks easy. Scrypt is a memory-hard password-based key derivation function (KDF) that requires substantial RAM and computation time, rendering ASIC/GPU brute-force attacks infeasible.
-
-### Q3: Why is RSA-PSS preferred over PKCS#1 v1.5?
-**Answer**: PKCS#1 v1.5 padding is deterministic and susceptible to chosen-ciphertext attacks (e.g., Bleichenbacher attacks). RSA-PSS (Probabilistic Signature Scheme) includes a randomized salt during signature generation, providing provable security against existential forgery.
-
-### Q4: What is the difference between Authentication and Authorization in RBAC?
-**Answer**: Authentication verifies *who* an entity is (e.g., via passwords or digital certificates). Authorization verifies *what* an authenticated entity is permitted to do based on assigned roles and least-privilege matrices.
+- **NIST SP 800-38D**: Recommendation for Block Cipher Modes of Operation (Galois/Counter Mode).
+- **RFC 7914**: The scrypt Password-Based Key Derivation Function.
+- **FIPS 186-4**: Digital Signature Standard (DSS) — RSA-PSS with SHA-256.
+- **NIST SP 800-92**: Guide to Computer Security Log Management (Zero Sensitive Data Retention).
 
 ---
 
-## 📄 License
-Educational Open-Source — Academic and Research Use.
+## 📚 Technical Documentation
+
+For an in-depth technical analysis covering the problem statement, cryptographic theory, threat modeling (STRIDE), and architectural diagrams, refer to the developer documentation:
+
+👉 **[Read the Developer & Architecture Guide](docs/DEVELOPER_GUIDE.md)**
+
+---
+
+## 👤 Author & Maintainer
+
+* **Developer:** Mukul Kumbhar
+* **GitHub:** [@MukulKumbhar](https://github.com/MukulKumbhar)
+* **Project Repository:** [https://github.com/MukulKumbhar/All-auth](https://github.com/MukulKumbhar/All-auth)

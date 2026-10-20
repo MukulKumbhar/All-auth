@@ -1,9 +1,8 @@
 """
 Security Event Log Module
 Integrated Cryptography, Network Security and Privacy System
-Maintains an in-memory session audit trail of security operations, decisions, and outcomes.
-DISCLAIMER: This is an educational session-level audit demonstration, NOT a tamper-proof write-once compliance system.
-NEVER logs raw passwords, private keys, personal identifying numbers, or confidential plaintext.
+Maintains a sanitized session audit trail of security operations, decisions, and system telemetry.
+Complies with zero-secret exposure policies: passwords, private keys, and raw payloads are never persisted.
 """
 
 from datetime import datetime

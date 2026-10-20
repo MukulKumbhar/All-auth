@@ -40,7 +40,7 @@ from rbac_utils import check_permission, ROLE_ADMIN, ROLE_ANALYST, ROLE_VIEWER, 
 
 def test_encryption_decryption_roundtrip():
     """Verify that file data encrypted with a password decrypts cleanly to original."""
-    original_data = b"Confidential INS Micro-Project Payload 2026! @#$%"
+    original_data = b"Confidential High-Security Operations Payload 2026! @#$%"
     filename = "report.pdf"
     password = "SuperStrongPassword123!"
 
@@ -123,7 +123,7 @@ def test_empty_password_rejection():
 def test_rsa_signature_generation_and_verification():
     """Verify digital signature creation and successful verification."""
     privkey, pubkey = generate_rsa_key_pair(2048)
-    document = b"Academic Authenticity Declaration for Micro-Project Evaluation."
+    document = b"Enterprise Security Protocol Dispatch Authorization Token 2026."
 
     sig = sign_data(privkey, document)
     assert len(sig) == 256  # 2048 bits / 8 = 256 bytes

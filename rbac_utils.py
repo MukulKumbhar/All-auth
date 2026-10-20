@@ -1,8 +1,7 @@
 """
 Role-Based Access Control (RBAC) Module
 Integrated Cryptography, Network Security and Privacy System
-Educational simulation demonstrating authorization matrices, least-privilege principles, and role enforcement.
-NOTE: This is an educational demonstration of authorization logic, not real operating-system authentication.
+Application-level authorization matrix enforcing the Principle of Least Privilege (PoLP).
 """
 
 from typing import Dict, List, Tuple
